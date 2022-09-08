@@ -6,26 +6,26 @@ DePaul University SE452 - Object-Oriented Enterprise Computing
 Learn Enterprise OO development key concepts by implementing a portion of well understood application such as CampusConnect, D2L, CDM Intranet, or anything that you are well versed with on requirements.
 
 1. Requirements
-  a. For the number of people in your group, select 1 major functionality.
-    i. Refer to rubric for technical functionality requirements
+  - For the number of people in your group, select 1 major functionality.
+    - Refer to rubric for technical functionality requirements
 
 2. Documentation section areas (PowerPoint or Word)
-  a. Functionality overview
-  b. Discussion of how your design met the requirements
-  c. Sequence of major functionality
-  d. Lessons learned
-  e. Decision log and consequence of the decision
+  - Functionality overview
+  - Discussion of how your design met the requirements
+  - Sequence of major functionality
+  - Lessons learned
+  - Decision log and consequence of the decision
 
 3. Presentation
-  a. 5-10 min by different members of the team through out the quarter summarizing
-    i. project overview,
-    ii. milestone deliverable,
-    iii. demo
+  - 5-10 min by different members of the team through out the quarter summarizing
+    - project overview,
+    - milestone deliverable,
+    - demo
     
 ## Recommended milestones
  <i>Upload project document with reference to github for EACH milestone</i>
 
-1. Milestone 1: Focus area: Project scope
+### i. Milestone 1: Focus area: Project scope
 
 Deliverable:
 - Document:
@@ -39,7 +39,7 @@ Deliverable:
   - Screen shot of working code (clean compile) in Appendix.
   - Code: Skeleton code from Spring uploaded to github, each person commit and update readme.md with their own information
 
-ii. Milestone 2 Focus area: SQL Persistence
+### ii. Milestone 2 Focus area: SQL Persistence
 
 Deliverable:
 - Document:
@@ -48,7 +48,7 @@ Deliverable:
   - Add screen shot of working code in Appendix.
   - Code: Updated with persistence related code
 
-iii. Milestone 3 Focus area: Services Layer
+### iii. Milestone 3 Focus area: Services Layer
 
 Deliverable:
 - Document:
@@ -56,7 +56,7 @@ Deliverable:
   - Add Service Layer
   - Code: Updated with services related code
 
-iv. Milestone 4 Focus area: No SQL
+### iv. Milestone 4 Focus area: No SQL
 
 Deliverable:
 - Document:
