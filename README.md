@@ -63,3 +63,6 @@ Deliverable:
   - Update prior content as necessary (eg scope, tables..), lessons learned, decisions made
   - Add NoSQL Layer
   - Code: Updated to include restful services with persistence code
+  
+  ---
+  ![GradingRubric](./GradingRubric.png)
