@@ -5,18 +5,18 @@ DePaul University SE452 - Object-Oriented Enterprise Computing
 
 Learn Enterprise OO development key concepts by implementing a portion of well understood application such as CampusConnect, D2L, CDM Intranet, or anything that you are well versed with on requirements.
 
-1. Requirements
+<em>1. Requirements</em>
   - For the number of people in your group, select 1 major functionality.
     - Refer to rubric for technical functionality requirements
 
-2. Documentation section areas (PowerPoint or Word)
+<em>2. Documentation section areas (PowerPoint or Word)</em>
   - Functionality overview
   - Discussion of how your design met the requirements
   - Sequence of major functionality
   - Lessons learned
   - Decision log and consequence of the decision
 
-3. Presentation
+<em>3. Presentation</em>
   - 5-10 min by different members of the team through out the quarter summarizing
     - project overview,
     - milestone deliverable,
