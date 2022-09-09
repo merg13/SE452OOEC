@@ -1,6 +1,9 @@
 # SE452OOEC
 DePaul University SE452 - Object-Oriented Enterprise Computing
 
+# Team members
+ - Eric Margules 
+ 
 # Overview
 
 Learn Enterprise OO development key concepts by implementing a portion of well understood application such as CampusConnect, D2L, CDM Intranet, or anything that you are well versed with on requirements.
