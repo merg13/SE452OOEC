@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 
 import se452.group4.project.reservation.Reservation;
 import se452.group4.project.customer.Customer;
+import se452.group4.project.movie.Movie;
 
 @SpringBootApplication
 public class ProjectApplication {
@@ -35,6 +36,9 @@ public class ProjectApplication {
 		Customer customer = new Customer();
 		customer.setName("Tan");
 		System.out.println(customer.toString());
+
+		System.out.println("-------Movie-------");
+		System.out.println(new Movie("Exciting Movie 4", "This is what the movie is about. It's really cool!", 180).toString());
 	 }
 
 }
