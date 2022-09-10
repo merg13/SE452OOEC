@@ -1,10 +1,15 @@
 package se452.group4.project;
 
+import java.time.LocalDateTime;
+import java.util.UUID;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import se452.group4.project.models.Student;
+import se452.group4.project.reservation.Reservation;
+import se452.group4.project.customer.Customer;
 
 @SpringBootApplication
 public class ProjectApplication {
@@ -17,15 +22,20 @@ public class ProjectApplication {
 
 	 @Bean
 	 public void runIt() {
-		System.out.println("-------");
+		
+		System.out.println("-------Reservation-------");
+		var reservation = new Reservation();
+		reservation.id = UUID.randomUUID();
+		reservation.showTimeId = UUID.randomUUID();
+		reservation.studentId = UUID.randomUUID();
+		reservation.startTime = LocalDateTime.now();
+		reservation.description = "Some important Description of a reservation for a movie.";
+		System.out.println(reservation.toString());
 
-		for (String g : groupMembers) {
-			var s = new Student();
-			s.setName(g);
-			System.out.println(s.toString());
-		}
-
-		System.out.println("-------");
+		System.out.println("-------Customer-------");
+		Customer customer = new Customer();
+		customer.setName("Tan");
+		System.out.println(customer.toString());
 	 }
 
 }
