@@ -9,6 +9,8 @@ import se452.group4.project.models.Student;
 @SpringBootApplication
 public class ProjectApplication {
 
+	private String[] groupMembers = new String[] { "Eric", "Tan", "Hani", "Mitchell" };
+
 	public static void main(String[] args) {
 		SpringApplication.run(ProjectApplication.class, args);
 	 }
@@ -16,9 +18,13 @@ public class ProjectApplication {
 	 @Bean
 	 public void runIt() {
 		System.out.println("-------");
-		Student student = new Student();
-		student.setName("Mitchell");
-		System.out.println(student.toString());
+
+		for (String g : groupMembers) {
+			var s = new Student();
+			s.setName(g);
+			System.out.println(s.toString());
+		}
+
 		System.out.println("-------");
 	 }
 
