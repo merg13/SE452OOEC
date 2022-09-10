@@ -11,5 +11,5 @@ public class Reservation {
     public String description;
     public LocalDateTime startTime;
     public UUID showTimeId;
-    public UUID studentId;
+    public UUID customerId;
 }

@@ -7,7 +7,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import se452.group4.project.models.Student;
 import se452.group4.project.reservation.Reservation;
 import se452.group4.project.customer.Customer;
 
@@ -27,7 +26,7 @@ public class ProjectApplication {
 		var reservation = new Reservation();
 		reservation.id = UUID.randomUUID();
 		reservation.showTimeId = UUID.randomUUID();
-		reservation.studentId = UUID.randomUUID();
+		reservation.customerId = UUID.randomUUID();
 		reservation.startTime = LocalDateTime.now();
 		reservation.description = "Some important Description of a reservation for a movie.";
 		System.out.println(reservation.toString());
