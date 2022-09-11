@@ -26,7 +26,7 @@ public class ProjectApplication {
 		
 		System.out.println("-------Reservation-------");
 		var reservation = new Reservation();
-		reservation.id = UUID.randomUUID();
+		reservation.setId(UUID.randomUUID());
 		reservation.showTimeId = UUID.randomUUID();
 		reservation.customerId = UUID.randomUUID();
 		reservation.startTime = LocalDateTime.now();
