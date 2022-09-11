@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import se452.group4.project.reservation.Reservation;
-import se452.group4.project.showtime.Showtime;
 import se452.group4.project.customer.Customer;
 import se452.group4.project.movie.Movie;
 
@@ -41,9 +40,6 @@ public class ProjectApplication {
 		System.out.println("-------Movie-------");
 		Movie sampleMovie = new Movie("Exciting Movie 4", "This is what the movie is about. It's really cool!", 180);
 		System.out.println(sampleMovie.toString());
-
-		System.out.println("-------Showtime-------");
-		System.out.println(new Showtime(sampleMovie.getId(), UUID.randomUUID(), LocalDateTime.now()).toString());
 	 }
 
 }
