@@ -38,8 +38,7 @@ public class ProjectApplication {
 		System.out.println(customer.toString());
 
 		System.out.println("-------Movie-------");
-		Movie sampleMovie = new Movie("Exciting Movie 4", "This is what the movie is about. It's really cool!", 180);
-		System.out.println(sampleMovie.toString());
+		System.out.println(new Movie("Exciting Movie 4", "This is what the movie is about. It's really cool!", 180).toString());
 	 }
 
 }
