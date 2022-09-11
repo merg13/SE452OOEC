@@ -17,16 +17,18 @@ public class ReservationTest {
     public void testToString() {
         var r = new Reservation();
         var id = UUID.randomUUID();
+        var createdDate = LocalDateTime.now();
         var showTimeId = UUID.randomUUID();
         var customerId = UUID.randomUUID();
         var startTime = LocalDateTime.now(); 
         var description = "Some important Description of a reservation for a movie.";
 
         var expectedResult = MessageFormat.format(
-            "Reservation(id={0}, description={1}, startTime={2}, showTimeId={3}, customerId={4})", 
-            id, description, startTime, showTimeId, customerId);
+            "Reservation(super=Entity(id={0}, created={1}), description={2}, startTime={3}, showTimeId={4}, customerId={5})", 
+            id, createdDate, description, startTime, showTimeId, customerId);
 
-        r.id = id;
+        r.setId(id);
+        r.setCreated(createdDate);
 		r.showTimeId = showTimeId;
 		r.customerId = customerId;
 		r.startTime = startTime;
