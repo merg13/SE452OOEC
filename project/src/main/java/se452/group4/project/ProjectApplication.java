@@ -35,7 +35,6 @@ public class ProjectApplication {
 
 		System.out.println("-------Customer-------");
 		Customer customer = new Customer("Tan");
-		customer.setName("Tan");
 		System.out.println(customer.toString());
 
 		System.out.println("-------Movie-------");
