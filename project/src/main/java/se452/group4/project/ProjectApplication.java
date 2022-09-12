@@ -44,6 +44,8 @@ public class ProjectApplication {
 
 		System.out.println("-------Showtime-------");
 		System.out.println(new Showtime(sampleMovie.getId(), UUID.randomUUID(), LocalDateTime.now()).toString());
+		System.out.println(new Showtime(sampleMovie.getId(), UUID.randomUUID(), LocalDateTime.now()).toString());
+
 	 }
 
 }
