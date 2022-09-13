@@ -10,7 +10,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class AdminTest {  
-    @DisplayName("Test Customer")
+    @DisplayName("Test Admin")
     @Test
     public void testAdmin() {
         Admin admin = new Admin();
