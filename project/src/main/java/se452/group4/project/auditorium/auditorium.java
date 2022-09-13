@@ -20,5 +20,4 @@ public class Auditorium extends Entity{
     public UUID customerId;
     private String auditorium_name;
     private int capacity;
-    private int seat_number;
 }
