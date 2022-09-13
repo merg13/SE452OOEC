@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 
 import se452.group4.project.reservation.Reservation;
 import se452.group4.project.showtime.Showtime;
+import se452.group4.project.auditorium.Auditorium;
 import se452.group4.project.customer.Customer;
 import se452.group4.project.movie.Movie;
 
@@ -43,6 +44,10 @@ public class ProjectApplication {
 
 		System.out.println("-------Showtime-------");
 		System.out.println(new Showtime(sampleMovie.getId(), UUID.randomUUID(), LocalDateTime.now()).toString());
+
+		System.out.println("-------Auditorium-------");
+		Auditorium auditoriumName = new Auditorium("Theater 5" , 100);
+        System.out.println(auditoriumName.toString());
 	 }
 
 }
