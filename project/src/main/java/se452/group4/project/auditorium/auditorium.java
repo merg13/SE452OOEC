@@ -9,8 +9,13 @@ import lombok.NonNull;
 import lombok.ToString;
 import se452.group4.project.entity.Entity;
 
-public class auditorium extends Entity{
+@Data
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
 
+public class Auditorium extends Entity{
+    @NonNull
     public UUID showTimeId;
     public UUID customerId;
     private String auditorium_name;
