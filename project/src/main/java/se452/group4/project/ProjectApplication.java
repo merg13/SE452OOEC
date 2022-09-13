@@ -23,7 +23,7 @@ public class ProjectApplication {
 	 }
 
 	 @Bean
-	 public void runIt(String room) {
+	 public void runIt() {
 		
 		System.out.println("-------Reservation-------");
 		var reservation = new Reservation();
@@ -46,8 +46,8 @@ public class ProjectApplication {
 		System.out.println(new Showtime(sampleMovie.getId(), UUID.randomUUID(), LocalDateTime.now()).toString());
 
 		System.out.println("-------Auditorium-------");
-		Auditorium auditoriumName = new Auditorium(null, null, room , 0);
-        System.out.println(auditoriumName.getId());
+		Auditorium auditoriumName = new Auditorium("Theater 5" , 100);
+        System.out.println(auditoriumName.toString());
 	 }
 
 }

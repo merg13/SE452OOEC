@@ -1,7 +1,5 @@
 package se452.group4.project.auditorium;
 
-import java.time.LocalDateTime;
-import java.util.UUID;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.AllArgsConstructor;
@@ -13,11 +11,8 @@ import se452.group4.project.entity.Entity;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-
-public class Auditorium extends Entity{
+public class Auditorium extends Entity {
     @NonNull
-    public UUID showTimeId;
-    public UUID customerId;
-    private String auditorium_name;
+    private String name;
     private int capacity;
 }
