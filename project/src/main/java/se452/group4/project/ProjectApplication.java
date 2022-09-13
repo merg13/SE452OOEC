@@ -34,8 +34,7 @@ public class ProjectApplication {
 		System.out.println(reservation.toString());
 
 		System.out.println("-------Customer-------");
-		Customer customer = new Customer();
-		customer.setName("Tan");
+		Customer customer = new Customer("Tan");
 		System.out.println(customer.toString());
 
 		System.out.println("-------Movie-------");
