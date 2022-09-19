@@ -3,14 +3,22 @@ package se452.group4.project.entity;
 import lombok.Data;
 import lombok.NonNull;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
-public abstract class Entity {
+@MappedSuperclass
+public class Entity {
+    @Id
     @NonNull
     private UUID id;
+    
     @NonNull
+    @Column(name = "created")
     private LocalDateTime created;
 
     protected Entity() {
