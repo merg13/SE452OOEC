@@ -1,0 +1,12 @@
+environment: development
+
+logging:
+  level:
+    root: INFO
+    org.hibernate.SQL: DEBUG
+
+spring:
+  datasource:
+  jpa:
+    show-sql: true
+    defer-datasource-initialization: true
