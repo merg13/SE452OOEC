@@ -1,10 +1,7 @@
 
 -- RESERVATION SEED DATA
-CREATE table reservation(id uuid primary key, created datetime DEFAULT CURRENT_TIMESTAMP, description nvarchar, startTime datetime, showTimeId uuid, customerId uuid);
-insert into reservation(id, description, startTime, showTimeId, customerId) values(random_uuid(), 'Jurassic World', CURRENT_TIMESTAMP(), random_uuid(), random_uuid());
-
--- insert into reservation(description nvarchar, startTime datetime, showTimeId uuid, customerId uuid)
--- values('Jurassic World', '2022-09-17 01:30:00:00.000', random_uuid(), random_uuid());
+insert into reservation(id, created, description, start_time, showtime_id, customer_id) 
+values(random_uuid(), CURRENT_TIMESTAMP(), 'Jurassic World', CURRENT_TIMESTAMP(), random_uuid(), random_uuid());
 
 -- MOVIE SEED DATA
 insert into movies(id, created, title, description, length)
