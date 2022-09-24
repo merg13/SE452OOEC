@@ -4,9 +4,6 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 import javax.persistence.Column;
-import javax.validation.constraints.Size;
-
-import com.jayway.jsonpath.internal.function.text.Length;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,6 +18,7 @@ import se452.group4.project.entity.Entity;
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 public class Reservation extends Entity {
+
 
     @Column(name = "description")
     public String description;
