@@ -1,3 +1,10 @@
+-- ADMIN SEED DATA
+insert into admin(id, created) 
+values(random_uuid(), CURRENT_TIMESTAMP());
+
+-- CUSTOMER SEED DATA
+insert into customer(id, created, name) 
+values(random_uuid(), CURRENT_TIMESTAMP(), 'John Smith');
 
 -- RESERVATION SEED DATA
 insert into reservation(id, created, description, start_time, showtime_id, customer_id) 
