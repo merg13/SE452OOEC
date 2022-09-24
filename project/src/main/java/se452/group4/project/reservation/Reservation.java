@@ -4,6 +4,9 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 import javax.persistence.Column;
+import javax.validation.constraints.Size;
+
+import com.jayway.jsonpath.internal.function.text.Length;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,11 +30,11 @@ public class Reservation extends Entity {
     public LocalDateTime startTime;
 
     @NonNull
-    @Column(name = "showtime_id")
+    @Column(name = "showtime_id", length = 16)
     public UUID showTimeId;
 
     @NonNull
-    @Column(name = "customer_id")
+    @Column(name = "customer_id", length = 16)
     public UUID customerId;
 
     public Reservation() {}

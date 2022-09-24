@@ -15,7 +15,7 @@ public class ReservationTest {
     
     // @Autowired uses Spring to instantiate an instance of the ReservationRepository for use in unit testing. 
     @Autowired
-    private ReservationRepository repo;
+    private ReservationRepo repo;
 
     /**
      * TEST: ReservationRepository Extending JPARepository - CRUD
