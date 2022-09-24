@@ -19,6 +19,7 @@ import se452.group4.project.entity.Entity;
 @ToString(callSuper = true)
 public class Reservation extends Entity {
 
+
     @Column(name = "description")
     public String description;
 
@@ -27,11 +28,11 @@ public class Reservation extends Entity {
     public LocalDateTime startTime;
 
     @NonNull
-    @Column(name = "showtime_id")
+    @Column(name = "showtime_id", length = 16)
     public UUID showTimeId;
 
     @NonNull
-    @Column(name = "customer_id")
+    @Column(name = "customer_id", length = 16)
     public UUID customerId;
 
     public Reservation() {}
