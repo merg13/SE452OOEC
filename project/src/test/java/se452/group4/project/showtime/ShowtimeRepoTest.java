@@ -2,7 +2,6 @@ package se452.group4.project.showtime;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -48,17 +47,18 @@ public class ShowtimeRepoTest {
 
     @DisplayName("Test ShowtimeRepo Delete method")
     @Test
+    @Transactional
     public void testShowtimeRepoDelete() {
         // Number of records before add
         long currentRecords = _repo.count();
         
-        Showtime _m = createDummyShowtime();
-        _repo.save(_m);            
+        Showtime _s = createDummyShowtime();
+        _repo.save(_s);            
 
         assertEquals(currentRecords + 1, _repo.count());
 
-        _repo.delete(_m);
-
+        _repo.delete(_s);
+        
         assertEquals(currentRecords, _repo.count());
     }
 

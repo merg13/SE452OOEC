@@ -15,7 +15,7 @@ import java.util.UUID;
 public class Entity {
     @Id
     @NonNull
-    @Column(columnDefinition="varchar2(128)")
+    @Column(columnDefinition="uuid")
     private UUID id;
     
     @NonNull
