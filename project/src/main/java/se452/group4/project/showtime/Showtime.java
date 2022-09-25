@@ -10,6 +10,7 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.ToString;
 import se452.group4.project.entity.Entity;
@@ -18,6 +19,7 @@ import se452.group4.project.entity.Entity;
 @javax.persistence.Entity
 @Table(name = "showtimes")
 @AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 public class Showtime extends Entity {
