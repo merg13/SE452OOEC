@@ -10,5 +10,5 @@ A theater management system that allows customers to see movies currently showin
 | ----------- | ----------- |
 | Mitchell | Reservation
 | Tan | Customer
-| Eric | Showtime, Movie
+| Eric | Showtime, Movie, Entity
 | Umme | Auditorium 
