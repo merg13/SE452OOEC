@@ -21,3 +21,7 @@ values(random_uuid(),  CURRENT_TIMESTAMP(),'Movie3', 'Movie3 description...', 15
 -- SHOWTIME SEED DATA
 insert into showtimes(id, movie_id, auditorium_id, showtime)
 values (random_uuid(), random_uuid(), random_uuid(), CURRENT_TIMESTAMP());
+
+-- AUDITORIUM SEED DATA
+insert into auditorium(id, created, name,capacity) 
+values(random_uuid(), CURRENT_TIMESTAMP(), 'Chicago Auditorium', 1000);
