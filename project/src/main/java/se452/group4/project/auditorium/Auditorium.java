@@ -19,4 +19,7 @@ public class Auditorium extends Entity {
     
     public String name;
     public int capacity;
+
+    public Auditorium() {}
+
 }
