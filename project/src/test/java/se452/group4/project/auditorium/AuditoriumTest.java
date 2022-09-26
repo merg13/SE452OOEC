@@ -42,8 +42,12 @@ public class AuditoriumTest {
         var id = UUID.randomUUID();
         var createdDate = LocalDateTime.now();
 
+
+        auditorium.setId(id);
+        auditorium.setCreated(createdDate);
+
         String expectedResult = MessageFormat.format(
-            "Auditorium(super=Entity(id={0}, created={1}), name=Theater 5)", 
+            "Auditorium(super=Entity(id={0}, created={1}), name=Theater 5, capacity=100)", 
             id, createdDate);
         assertEquals(expectedResult, auditorium.toString());
     }  
