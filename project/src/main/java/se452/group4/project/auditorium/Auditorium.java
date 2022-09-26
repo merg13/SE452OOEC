@@ -14,8 +14,6 @@ import javax.persistence.Table;
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 @Table(name = "auditorium")
-@ToString(callSuper = true)
-
 
 public class Auditorium extends Entity {
     
