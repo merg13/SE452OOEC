@@ -12,6 +12,7 @@ import javax.persistence.Table;
 @javax.persistence.Entity
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
 @Table(name = "auditorium")
 @ToString(callSuper = true)
 
