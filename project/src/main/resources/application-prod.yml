@@ -1,4 +1,4 @@
-environment: development
+environment: production
 
 logging:
   level:
@@ -7,7 +7,7 @@ logging:
 
 spring:
   datasource:
-    url:  jdbc:h2:mem:se452dbdev
+    url:  jdbc:h2:mem:se452dbprod
   jpa:
     show-sql: true
     defer-datasource-initialization: true
