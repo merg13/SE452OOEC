@@ -44,14 +44,14 @@ public class CustomerService implements ICustomerService {
     }
 
     public Customer CreateCustomer(Customer newCustomer) throws CustomerException {
-        Customer retval = null;
+        Customer customer = null;
         try {
-            retval = repo.save(newCustomer);
+            customer = repo.save(newCustomer);
         } catch (Exception e) {
             throw new CustomerException(CustomerException.CreateCustomerError, e);
         }
 
-        return retval;
+        return customer;
     }
 
     public void DeleteCustomerById(UUID id) throws CustomerException {
