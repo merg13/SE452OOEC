@@ -18,7 +18,7 @@ public class UpdateAuditorium {
 
     private String name;
     
-    private int capacity;
+    private Integer capacity;
 
 }
 
