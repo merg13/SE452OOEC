@@ -19,8 +19,8 @@ insert into movies(id, created, title, description, length)
 values(random_uuid(),  CURRENT_TIMESTAMP(),'Movie3', 'Movie3 description...', 151);
 
 -- SHOWTIME SEED DATA
-insert into showtimes(id, movie_id, auditorium_id, showtime)
-values (random_uuid(), random_uuid(), random_uuid(), CURRENT_TIMESTAMP());
+insert into showtimes(id, created, movie_id, auditorium_id, showtime)
+values (random_uuid(), CURRENT_TIMESTAMP(), random_uuid(), random_uuid(), CURRENT_TIMESTAMP());
 
 -- AUDITORIUM SEED DATA
 insert into auditorium(id, created, name,capacity) 
