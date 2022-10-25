@@ -1,6 +1,5 @@
 package se452.group4.project.showtime;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
