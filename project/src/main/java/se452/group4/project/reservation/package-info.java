@@ -5,9 +5,9 @@
  * 
  * <h1>Package Overview</h1>
  * 
- * <p>Reservation is an entity that extends the abstract se452.group4.project.entity.Entity base class.</p>
- * 
- *  <h2>LOMBOK Usage</h2>
+ *  <h2>Reservation</h2>
+ *  <ul><li>Entity for interacting with data related to Reservations. It extends our se452.group4.project.entity.Entity abstract class which provides it with an unique identifier and created timestamp. It is then extended with reservation specific metadata.</li></ul>
+ *  <h3>LOMBOK Usage:</h3>
  * <ul>
  *  <li>@Data - Generates getters/setters for the properties on the object.</li>
  *  <li>@AllArgsConstructor - Generates a Standard constructor that includes parameters for each property on the object.</li>
@@ -15,8 +15,28 @@
  *  <li>@ToString(callSuper = true) - Since Reservation Extends the abstract Entity class, the <em>callSuper=true</em> allows the ToString method to also display the base class properties.</li>
  *  <li>@Entity - specifies that the annotaed model is an Entity for use in persistence through java persistence, the ReservationRepository, which extends the JPARepository for CRUD operations to the Database.
  * </ul>
- * 
- * <h2>JPARepository</h2>
+ * ///////////////////////////////////
+ * <h2>IReservationRepo</h2>
+ * <h3>JPARepository Usage:</h3>
  * <p>Through the ReservationRepository, The Reservation Entity interacts with a database using the repository pattern extending a JPARepository.</p>
+ * <ul>
+ *  <li>findByStartTimeBetween - allows for the ability to find all reservations based on a given start time range.</li>
+ *  <li>findByShowTimeId - allows for the ability to find all reservations based on a given showtime.</li>
+ *  <li>findByCustomerId - allows for the ability to find all reservations based on a given customer.</li>
+ *  <li>findByDescription - allows for the ability to find all reservations based on an exact description.</li>
+ * </ul>
+ * 
+ * ///////////////////////////////////
+ * <h2>ReservationController</h2>
+ * 
+ * ///////////////////////////////////
+ * <h2>ReservationService</h2>
+ * 
+ * ///////////////////////////////////
+ * <h2>ReservationException</h2>
+ * <ul>
+ *  <li>Extension of the base java Exception class used in the ReservationService to provide more specific exception handling for Reservations. Logging and proper exception handling can be invaluable for debugging large scale enterprise systems.</li>
+ * </ul>
+ * ///////////////////////////////////
  */
 package se452.group4.project.reservation;

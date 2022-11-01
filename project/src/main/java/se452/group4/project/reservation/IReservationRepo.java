@@ -10,10 +10,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * The repository is responsible for interacting with the database to perform CRUD opterations for FlixNet Reservations.
  * @see JpaRepository that extends PagingAndSortingRepository that expands CrudRepository
  */
-public interface ReservationRepo extends JpaRepository<Reservation, UUID>  {
+public interface IReservationRepo extends JpaRepository<Reservation, UUID>  {
 
     /**
-     * finds all the reservations based on a given start time.
+     * finds all the reservations based on a given start time range.
      * @param startTime
      * @return List<Reservation>
      */

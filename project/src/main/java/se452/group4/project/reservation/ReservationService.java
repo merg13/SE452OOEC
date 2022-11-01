@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ReservationService implements IReservationService {
     @Autowired 
-    ReservationRepo repo; 
+    IReservationRepo repo; 
 
     public List<Reservation> GetAllReservations() throws ReservationException {
         List<Reservation> retval = null;
