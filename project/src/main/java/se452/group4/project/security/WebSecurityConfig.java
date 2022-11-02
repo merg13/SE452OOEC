@@ -58,6 +58,6 @@ public class WebSecurityConfig {
                 .roles("ADMIN", "USER")
                 .build();
 
-        return new InMemoryUserDetailsManager(user);
+        return new InMemoryUserDetailsManager(new UserDetails[] { user, admin });
     }
 }
