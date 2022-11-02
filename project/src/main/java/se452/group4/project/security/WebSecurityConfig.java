@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -38,6 +39,9 @@ public class WebSecurityConfig {
         return http.build();
     }
 
+    /**
+     * Builds InMemory Users for us to use to authenticate with Spring Security Web App. DEVELOPMENT ONLY.
+     */
     @Bean
     public UserDetailsService userDetailsService() {
         UserDetails user = 
@@ -45,6 +49,13 @@ public class WebSecurityConfig {
                 .username("user")
                 .password("password")
                 .roles("USER")
+                .build();
+
+        UserDetails admin = 
+            User.withDefaultPasswordEncoder()
+                .username("admin")
+                .password("password")
+                .roles("ADMIN", "USER")
                 .build();
 
         return new InMemoryUserDetailsManager(user);
