@@ -15,7 +15,7 @@ public class ReservationRepoTest extends BaseReservationTest {
 
     // @Autowired uses Spring to instantiate an instance of the ReservationRepository for use in unit testing. 
     @Autowired
-    public IReservationRepo repo;
+    public ReservationRepository repo;
 
     public ReservationRepoTest() {
     }
