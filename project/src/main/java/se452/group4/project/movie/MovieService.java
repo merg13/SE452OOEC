@@ -9,35 +9,35 @@ import org.springframework.stereotype.Service;
 @Service
 public class MovieService implements IMovieService {
     @Autowired
-    private MovieRepo _repo;
+    MovieRepo _repo;
 
     @Override
-    public Movie CreateMovie(String title, String description, int length) {
+    public Movie createMovie(String title, String description, int length) {
         return _repo.save(new Movie(title, description, length));
     }
 
     @Override
-    public Movie GetMovieById(UUID id) {
+    public Movie getMovieById(UUID id) {
         return _repo.findById(id).get();
     }
 
     @Override
-    public List<Movie> GetMovieByTitle(String title) {
+    public List<Movie> getMovieByTitle(String title) {
         return _repo.findByTitle(title);
     }
 
     @Override
-    public Movie UpdateMovie(Movie movieToUpdate) {
+    public Movie updateMovie(Movie movieToUpdate) {
         return _repo.save(movieToUpdate);
     }
 
     @Override
-    public void DeleteMovie(Movie movieToDelete) {
+    public void deleteMovie(Movie movieToDelete) {
         _repo.delete(movieToDelete);
     }
 
     @Override
-    public List<Movie> GetAllMovies() {
+    public List<Movie> getAllMovies() {
         return _repo.findAll();
     }
     

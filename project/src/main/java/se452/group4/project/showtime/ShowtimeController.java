@@ -27,13 +27,13 @@ public class ShowtimeController {
 
     @GetMapping("/all")
     public List<Showtime> getAll() {
-        return _service.GetAllShowtimes();
+        return _service.getAllShowtimes();
     }
 
     @GetMapping()
     public Showtime get(@RequestParam(value = "id") UUID id) throws ResponseStatusException {
         try {
-            Showtime _s = _service.GetShowtimeById(id);
+            Showtime _s = _service.getShowtimeById(id);
             if (_s == null)
                 throw new ShowtimeNotFoundException(id);
             return _s;
@@ -45,11 +45,11 @@ public class ShowtimeController {
     @DeleteMapping
     public void delete(@RequestParam(value = "id") UUID id) throws ResponseStatusException {
         try {
-            Showtime _s = _service.GetShowtimeById(id);
+            Showtime _s = _service.getShowtimeById(id);
             if (_s == null)
                 throw new ShowtimeNotFoundException(id);
             
-            _service.DeleteShowtime(_s);  
+            _service.deleteShowtime(_s);  
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
         }
@@ -58,7 +58,7 @@ public class ShowtimeController {
     @PostMapping("/new")
     public Showtime create(@RequestBody NewShowtimeVm showtime) throws ResponseStatusException {
         try {
-            return _service.CreateShowtime(showtime.getMovieId(), showtime.getAuditoriumId(), showtime.getTime());
+            return _service.createShowtime(showtime.getMovieId(), showtime.getAuditoriumId(), showtime.getTime());
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
         }
@@ -67,7 +67,7 @@ public class ShowtimeController {
     @PatchMapping("/update")
     public Showtime update(@RequestBody UpdateShowtimeVm showtime) throws ResponseStatusException {
         try {
-            Showtime _s = _service.GetShowtimeById(showtime.getId());
+            Showtime _s = _service.getShowtimeById(showtime.getId());
             if (_s == null)
                 throw new ShowtimeNotFoundException(showtime.getId());
 
@@ -78,7 +78,7 @@ public class ShowtimeController {
             if (showtime.getTime() != null) 
                 _s.setTime(showtime.getTime());
                 
-            return _service.UpdateShowtime(_s);
+            return _service.updateShowtime(_s);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
         }

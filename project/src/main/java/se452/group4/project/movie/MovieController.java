@@ -29,13 +29,13 @@ public class MovieController {
 
     @GetMapping("/all")
     public List<Movie> getAll() {
-      return _service.GetAllMovies();
+      return _service.getAllMovies();
     }
 
     @GetMapping
     public Movie get(@RequestParam(value = "id") UUID id) throws ResponseStatusException {
         try {
-            Movie _m = _service.GetMovieById(id);
+            Movie _m = _service.getMovieById(id);
             if (_m == null)
                 throw new MovieNotFoundException(id);
             return _m;
@@ -47,11 +47,7 @@ public class MovieController {
     @DeleteMapping
     public void delete(@RequestParam(value = "id") UUID id) throws ResponseStatusException {
         try {
-            Movie _m = _service.GetMovieById(id);
-            if (_m == null)
-                throw new MovieNotFoundException(id);
-            
-            _service.DeleteMovie(_m);
+ 
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
         }
@@ -60,7 +56,7 @@ public class MovieController {
     @PostMapping("/new")
     public Movie create(@RequestBody NewMovieVm movie) throws ResponseStatusException {
         try {
-            return _service.CreateMovie(movie.getTitle(), movie.getDescription(), movie.getDurationInMinutes());
+            return _service.createMovie(movie.getTitle(), movie.getDescription(), movie.getDurationInMinutes());
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
         }
@@ -69,7 +65,7 @@ public class MovieController {
     @PatchMapping("/update")
     public Movie update(@RequestBody UpdateMovieVm movie) throws ResponseStatusException {
         try {
-            Movie _m = _service.GetMovieById(movie.getId());
+            Movie _m = _service.getMovieById(movie.getId());
             if (_m == null)
                 throw new MovieNotFoundException(movie.getId());
 
@@ -80,7 +76,7 @@ public class MovieController {
             if (movie.getDurationInMinutes() != null)
                 _m.setDurationInMinutes(movie.getDurationInMinutes());
 
-            return _service.UpdateMovie(_m);
+            return _service.updateMovie(_m);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
         }

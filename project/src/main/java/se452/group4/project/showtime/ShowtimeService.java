@@ -10,40 +10,40 @@ import org.springframework.stereotype.Service;
 @Service
 public class ShowtimeService implements IShowtimeService {
     @Autowired
-    private ShowtimeRepo _repo;
+    ShowtimeRepo _repo;
 
     @Override
-    public List<Showtime> GetAllShowtimes() {
+    public List<Showtime> getAllShowtimes() {
         return _repo.findAll();
     }
 
     @Override
-    public Showtime CreateShowtime(UUID movieId, UUID auditoriumId, LocalDateTime showtime) {
+    public Showtime createShowtime(UUID movieId, UUID auditoriumId, LocalDateTime showtime) {
         return _repo.save(new Showtime(movieId, auditoriumId, showtime));
     }
 
     @Override
-    public Showtime GetShowtimeById(UUID id) {
+    public Showtime getShowtimeById(UUID id) {
         return _repo.findById(id).get();
     }
 
     @Override
-    public List<Showtime> GetShowtimesByMovie(UUID movieId) {
+    public List<Showtime> getShowtimesByMovie(UUID movieId) {
         return _repo.findByMovieId(movieId);
     }
 
     @Override
-    public List<Showtime> GetShowtimesByAuditorium(UUID auditoriumId) {
+    public List<Showtime> getShowtimesByAuditorium(UUID auditoriumId) {
         return _repo.findByAuditoriumId(auditoriumId);
     }
 
     @Override
-    public Showtime UpdateShowtime(Showtime showtimeToUpdate) {
+    public Showtime updateShowtime(Showtime showtimeToUpdate) {
         return _repo.save(showtimeToUpdate);
     }
 
     @Override
-    public void DeleteShowtime(Showtime showtimeToDelete) {
+    public void deleteShowtime(Showtime showtimeToDelete) {
         _repo.delete(showtimeToDelete);
     }
     
