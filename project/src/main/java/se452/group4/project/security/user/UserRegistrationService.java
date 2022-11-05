@@ -108,7 +108,7 @@ public class UserRegistrationService implements IUserRegistrationServiceImpl {
 
     @Override
     public UserResponse getUser(String username) throws UserException {
-        UserResponse retval = new UserResponse();
+        UserResponse retval;
         try {
             if(!userRepository.existsByUsername(username).booleanValue()) {
                 retval = UserResponse.builder()
