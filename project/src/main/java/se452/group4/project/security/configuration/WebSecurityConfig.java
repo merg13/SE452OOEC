@@ -43,7 +43,7 @@ public class WebSecurityConfig {
             "/", 
             "/home", 
             "/swagger-ui/**",
-            "/v3/api-docs"
+            "/v3/api-docs/**"
         };
 
         http.cors().and().csrf().disable()
