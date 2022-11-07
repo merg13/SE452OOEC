@@ -5,15 +5,16 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 /**
  * The repository is responsible for interacting with the database to perform CRUD opterations for FlixNet Reservations.
  * @see JpaRepository that extends PagingAndSortingRepository that expands CrudRepository
  */
-public interface ReservationRepo extends JpaRepository<Reservation, UUID>  {
-
-    /**
-     * finds all the reservations based on a given start time.
+public interface ReservationRepository extends JpaRepository<Reservation, UUID> {
+        /**
+     * finds all the reservations based on a given start time range.
      * @param startTime
      * @return List<Reservation>
      */

@@ -1,78 +1,161 @@
 package se452.group4.project.reservation;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+/**
+ * Service Class for interactions with the DAO for Reservation objects in the FlixNet System.
+ */
 @Service
 public class ReservationService implements IReservationService {
     @Autowired 
-    ReservationRepo repo; 
+    public ReservationRepository repo; 
 
-    public List<Reservation> GetAllReservations() throws ReservationException {
-        List<Reservation> retval = null;
+    public ReservationResponse GetAllReservations() throws ReservationException {
+        ReservationResponse retval;
 
         try {
-            retval = repo.findAll();
-        } catch (Exception e) {
-            throw new ReservationException(ReservationException.GetAllReservationsError, e);
+            retval = ReservationResponse.builder()
+                .reservations(repo.findAll())
+                .errors(Set.of(new String[]{}))
+                .success(true)
+                .build();
+        } catch (Exception e) { 
+            retval = ReservationResponse.builder()
+                .reservations(null)
+                .success(false)
+                .errors(Set.of(ReservationException.GetAllReservationsError))
+                .build();
         }
         return retval;
     }
 
-    public Reservation GetReservationById(UUID id) throws ReservationException {
-        Reservation retval = null;
+    public ReservationResponse GetReservationById(UUID id) throws ReservationException {
+        ReservationResponse retval;
         try {
-            retval = repo.findById(id).get();
+            retval = ReservationResponse.builder()
+                .reservations(List.of(repo.findById(id).get()))
+                .errors(Set.of(new String[]{}))
+                .success(true)
+                .build();
         } catch (Exception e) {
-            throw new ReservationException(id, ReservationException.GetReservationByIdError, e);
+            retval = ReservationResponse.builder()
+                .reservations(null)
+                .errors(Set.of(ReservationException.GetReservationByIdError))
+                .success(false)
+                .build();
         }
-
         return retval;
     }
 
-    public Reservation UpsertReservation(Reservation newReservation) throws ReservationException {
-        Reservation retval = null;
+    public ReservationResponse UpsertReservation(Reservation newReservation) throws ReservationException {
+        ReservationResponse retval;
         var newId = newReservation.getId();
         try {
             if (!repo.existsById(newId)) {
-                retval = repo.save(newReservation);
+                retval = ReservationResponse.builder()
+                    .reservations(List.of(repo.save(newReservation)))
+                    .errors(Set.of(new String[]{}))
+                    .success(true)
+                    .build();
+
                 return retval;
             }   
 
             // Update fields that are updateable... shouldn't allow initial ID or Created Timestamp to be udpated.
-            retval = repo.findById(newId).get();
-            retval.setCustomerId(newReservation.customerId);
-            retval.setDescription(newReservation.description);
-            retval.setShowTimeId(newReservation.showTimeId);
+            var updateableReservation = repo.findById(newId).get();
+            updateableReservation.setCustomerId(newReservation.customerId);
+            updateableReservation.setDescription(newReservation.description);
+            updateableReservation.setShowTimeId(newReservation.showTimeId);
 
-            retval = repo.save(retval);
+            // Save  
+            retval = ReservationResponse.builder()
+                .reservations(List.of(repo.save(updateableReservation)))
+                .success(true)
+                .errors(Set.of(new String[]{}))
+                .build();
+
         } catch (Exception e) {
-            throw new ReservationException(newId, ReservationException.UpsertReservationError, e);
+            retval = ReservationResponse.builder()
+                .reservations(null)
+                .errors(Set.of(ReservationException.UpsertReservationError))
+                .success(false)
+                .build();
         }
-
         return retval;
     }
 
-    public Reservation CreateReservation(Reservation newReservation) throws ReservationException {
-        Reservation retval = null;
+    public ReservationResponse CreateReservation(Reservation newReservation) throws ReservationException {
+        ReservationResponse retval;
         try {
-            retval = repo.save(newReservation);
+            retval = ReservationResponse.builder()
+                .reservations(List.of(repo.save(newReservation)))
+                .success(true)
+                .errors(Set.of(new String[]{}))
+                .build();
 
         } catch (Exception e) {
-            throw new ReservationException(ReservationException.CreateReservationError, e);
+            retval = ReservationResponse.builder()
+                .reservations(null)
+                .errors(Set.of(ReservationException.CreateReservationError))
+                .success(false)
+                .build();
         }
 
         return retval;
     }
 
-    public void DeleteReservationById(UUID id) throws ReservationException {
+    public ReservationResponse DeleteReservationById(UUID id) throws ReservationException {
+        ReservationResponse retval;
         try {
             repo.delete(repo.findById(id).get());
+
+            retval = ReservationResponse.builder()
+                .reservations(null)
+                .success(true)
+                .errors(Set.of(new String[]{}))
+                .build();
+
         } catch (Exception e) {
-            throw new ReservationException(id, ReservationException.DeleteReservationByIdError, e);
+            retval = ReservationResponse.builder()
+                .reservations(null)
+                .success(false)
+                .errors(Set.of(new String[]{ReservationException.DeleteReservationByIdError}))
+                .build();
         }
+
+        return retval;
+    }
+
+    @Override
+    public ReservationResponse GetReservationsBetweenStartTime(LocalDateTime firstDateTime,
+            LocalDateTime secondDateTime) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public ReservationResponse GetReservationsByCustomerId(UUID customerId) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public ReservationResponse GetReservationsByDescription(String description) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public ReservationResponse GetReservationsByShowTimeId(UUID showTimeId) {
+        // TODO Auto-generated method stub
+        return null;
     }
 }

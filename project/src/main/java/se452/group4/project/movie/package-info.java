@@ -18,6 +18,13 @@
  *  <li>Lombok NoArgsConstructor decorator necessary for JPARepo</li>
  *  <li>SpringbootTest decorator necessary to implement DI via @Autowired</li>
  * </ul>
+  * <h2>Points of Interest Milestone 3<h2>
+ * <ul>
+ *  <li>Addition repo action (query on movie title)</li>
+ *  <li>View models to pass only relevant data to controller </li>
+ *  <li>Service interface implemented by Service class</li>
+ *  <li>Controller actions return http status codes instead of raw exceptions</li>
+ * </ul>
  */
 
 package se452.group4.project.movie;

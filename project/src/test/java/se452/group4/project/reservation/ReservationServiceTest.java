@@ -2,10 +2,12 @@ package se452.group4.project.reservation;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.AfterEach;
@@ -19,10 +21,10 @@ public class ReservationServiceTest extends BaseReservationTest {
     @Autowired
     ReservationService service;
 
-    ReservationRepo repo;
+    ReservationRepository repo;
 
     public ReservationServiceTest() {
-        repo = mock(ReservationRepo.class);
+        repo = mock(ReservationRepository.class);
     }
 
     @AfterEach 
@@ -41,8 +43,8 @@ public class ReservationServiceTest extends BaseReservationTest {
         var result = service.GetAllReservations();
 
         assertNotNull(result);
-        assertEquals(2, result.size());
-        assertEquals(rs.get(0), result.get(0));
+        assertEquals(2, result.reservations.size());
+        assertEquals(rs.get(0), result.reservations.get(0));
     }
 
     @Test
@@ -55,7 +57,9 @@ public class ReservationServiceTest extends BaseReservationTest {
         var result = service.GetReservationById(r.getId());
 
         assertNotNull(result);
-        assertEquals(r, result);
+        assertTrue(result.success);
+        assertEquals(0, result.errors.size());
+        assertEquals(List.of(r), result.reservations);
     }
 
     @Test
@@ -71,7 +75,7 @@ public class ReservationServiceTest extends BaseReservationTest {
         var result = service.UpsertReservation(newR);
         
         assertNotNull(result);
-        assertEquals(newR.getDescription(), result.getDescription());
+        assertEquals(newR.getDescription(), result.reservations.get(0).getDescription());
     }
 
     @Test
@@ -85,7 +89,9 @@ public class ReservationServiceTest extends BaseReservationTest {
         var result = service.UpsertReservation(r);
 
         assertNotNull(result);
-        assertEquals(r, result);
+        assertTrue(result.success);
+        assertEquals(0, result.errors.size());
+        assertEquals(List.of(r), result.reservations);
     }
 
     @Test
@@ -98,7 +104,9 @@ public class ReservationServiceTest extends BaseReservationTest {
         var result = service.CreateReservation(r);
 
         assertNotNull(result);
-        assertEquals(r,result);
+        assertTrue(result.success);
+        assertEquals(0, result.errors.size());
+        assertEquals(List.of(r),result.reservations);
     }
 
     @Test
@@ -112,6 +120,6 @@ public class ReservationServiceTest extends BaseReservationTest {
         service.DeleteReservationById(r.getId());
 
         var result = service.GetAllReservations();
-        assertEquals(0, result.size());
+        assertEquals(0, result.reservations.size());
     }
 }

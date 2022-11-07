@@ -2,7 +2,7 @@ environment: development
 
 logging:
   level:
-    root: INFO
+    root: DEBUG
     org.hibernate.SQL: DEBUG
 
 spring:
@@ -11,3 +11,6 @@ spring:
   jpa:
     show-sql: true
     defer-datasource-initialization: true
+  redis:
+    host: host.docker.internal
+    port: 6379
