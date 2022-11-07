@@ -1,10 +1,9 @@
 package se452.group4.project.reservation;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import java.time.LocalDateTime;
 
+import org.assertj.core.util.IterableUtil;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,27 +52,8 @@ public class ReservationRepoTest extends BaseReservationTest {
         repo.save(r);
         var r1 = repo.findByDescription(desc1);
         // ASSERT
-        assertEquals(1, r1.size());
-        assertEquals(desc1, r1.get(0).getDescription());
-    }
-
-    /**
-     * TEST: ReservationRepository Extending JPARepository - CRUD - find by startTime
-     */
-    @Test
-    public void testFindByStartTime() {
-        // ARRANGE
-        var r = createReservation();
-        var firstSearchDateTime = LocalDateTime.now().minusDays(1);
-        var secondSearchDateTime = LocalDateTime.now().plusDays(1);
-
-        // ACT
-        repo.save(r);
-        var result = repo.findByStartTimeBetween(firstSearchDateTime, secondSearchDateTime);
-
-        // ASSERT
-        assertNotNull(result);
-        assertEquals(2, result.size());
+        assertEquals(1, IterableUtil.sizeOf(r1));
+        assertEquals(desc1, r1.iterator().next().getDescription());
     }
     
     /**
@@ -89,8 +69,8 @@ public class ReservationRepoTest extends BaseReservationTest {
         var result = repo.findByShowTimeId(r.getShowTimeId());
 
         // ASSERT
-        assertEquals(1, result.size());
-        assertEquals(r.getShowTimeId(), result.get(0).getShowTimeId());
+        assertEquals(1, IterableUtil.sizeOf(result));
+        assertEquals(r.getShowTimeId(), result.iterator().next().getShowTimeId());
     }
 
     /**
@@ -106,8 +86,8 @@ public class ReservationRepoTest extends BaseReservationTest {
         var result = repo.findByCustomerId(r.getCustomerId());
 
         // ASSERT
-        assertEquals(1, result.size());
-        assertEquals(r.getCustomerId(), result.get(0).getCustomerId());
+        assertEquals(1, IterableUtil.sizeOf(result));
+        assertEquals(r.getCustomerId(), result.iterator().next().getCustomerId());
     }
 
 }

@@ -1,7 +1,6 @@
 package se452.group4.project.reservation;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.UUID;
 
 /**

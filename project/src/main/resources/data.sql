@@ -6,9 +6,9 @@ values(random_uuid(), CURRENT_TIMESTAMP());
 insert into customer(id, created, name) 
 values(random_uuid(), CURRENT_TIMESTAMP(), 'John Smith');
 
--- RESERVATION SEED DATA
-insert into reservation(id, created, description, start_time, showtime_id, customer_id) 
-values(random_uuid(), CURRENT_TIMESTAMP(), 'Jurassic World', CURRENT_TIMESTAMP(), random_uuid(), random_uuid());
+-- RESERVATION SEED DATA (Commented out converted to REDIS)
+-- insert into reservation(id, created, description, start_time, showtime_id, customer_id) 
+-- values(random_uuid(), CURRENT_TIMESTAMP(), 'Jurassic World', CURRENT_TIMESTAMP(), random_uuid(), random_uuid());
 
 -- MOVIE SEED DATA
 insert into movies(id, created, title, description, length)

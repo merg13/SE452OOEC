@@ -11,3 +11,7 @@ spring:
   jpa:
     show-sql: true
     defer-datasource-initialization: true
+  #Default redis host and port    
+  redis:
+    host: localhost
+    port: 6379
