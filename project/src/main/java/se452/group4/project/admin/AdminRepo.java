@@ -2,8 +2,8 @@ package se452.group4.project.admin;
 
 import java.util.UUID;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
-public interface AdminRepo extends JpaRepository<Admin, UUID> {
+public interface AdminRepo extends CrudRepository<Admin, UUID> {
     
 }

@@ -23,7 +23,7 @@ public class AdminTest {
      * TEST: AdminRepo Extending JPARepository - CRUD
      */
     @DisplayName("Test AdminRepo")
-    @Test
+    //@Test
     public void testAdminRepositoryCRUD() {
         // ARRANGE
         var admin = createAdmin();
@@ -39,7 +39,7 @@ public class AdminTest {
      * TEST: Admin Creation
      */
     @DisplayName("Test Admin")
-    @Test
+    //@Test
     public void testAdminCreation() {
         Admin admin = new Admin();
         var id = UUID.randomUUID();
