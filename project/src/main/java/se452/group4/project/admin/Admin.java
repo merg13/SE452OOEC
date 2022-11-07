@@ -7,12 +7,10 @@ import lombok.ToString;
 import javax.persistence.Table;
 
 import se452.group4.project.entity.Entity;
+import org.springframework.data.redis.core.RedisHash;
 
 @Data
-@javax.persistence.Entity
-@AllArgsConstructor
-@EqualsAndHashCode(callSuper = true)
-@ToString(callSuper = true)
-@Table(name = "admin")
+@RedisHash
+
 public class Admin extends Entity {
 }

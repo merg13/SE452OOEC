@@ -6,7 +6,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
+// import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,7 +37,7 @@ public class ReservationController {
      * Retrieves all the Reservations in the FlixNet Database.  
     */
     @GetMapping
-    @Secured({ "ROLE_CUSTOMER", "ROLE_ADMIN" })
+    // @Secured({ "ROLE_CUSTOMER", "ROLE_ADMIN" })
     public ResponseEntity<ReservationResponse> list() throws ReservationException {
         log.traceEntry("ENTER: list all reservations.");
         try {
@@ -57,7 +57,7 @@ public class ReservationController {
      * @throws ReservationException
      */
     @GetMapping("/{id}")
-    @Secured({ "ROLE_CUSTOMER", "ROLE_ADMIN" })
+    // @Secured({ "ROLE_CUSTOMER", "ROLE_ADMIN" })
     public ResponseEntity<ReservationResponse> get(@PathVariable("id") UUID id) throws ReservationException {
         log.traceEntry("ENTER: get reservation by id.");
         try {
@@ -76,7 +76,7 @@ public class ReservationController {
      * @return Reservation
      */
     @PostMapping
-    @Secured({ "ROLE_CUSTOMER", "ROLE_ADMIN" })
+    // @Secured({ "ROLE_CUSTOMER", "ROLE_ADMIN" })
     public ResponseEntity<ReservationResponse> save(@RequestBody Reservation reservation) throws ReservationException {
         log.traceEntry("ENTER: save reservation.", reservation);
         try {
@@ -98,7 +98,7 @@ public class ReservationController {
      * @return
      */
     @PutMapping()
-    @Secured({ "ROLE_CUSTOMER", "ROLE_ADMIN" })
+    // @Secured({ "ROLE_CUSTOMER", "ROLE_ADMIN" })
     public ResponseEntity<ReservationResponse> upsert(@RequestBody Reservation reservation) throws ReservationException {
         log.traceEntry("ENTER: upsert reservation.", reservation);
         try {
@@ -116,7 +116,7 @@ public class ReservationController {
      * @param id
      */
     @DeleteMapping("/{id}")
-    @Secured({ "ROLE_CUSTOMER", "ROLE_ADMIN" })
+    // @Secured({ "ROLE_CUSTOMER", "ROLE_ADMIN" })
     public ResponseEntity<ReservationResponse> delete(@PathVariable("id") UUID id) throws ReservationException {
         log.traceEntry("ENTER: delete reservation.", id);
         try {
