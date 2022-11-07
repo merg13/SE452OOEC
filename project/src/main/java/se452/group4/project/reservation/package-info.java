@@ -18,18 +18,20 @@
  *  <li>@EqualsAndHashCode(callSuper = true) - Standard Equals and HashCode methods based on the object structure and its properties.</li>
  *  <li>@ToString(callSuper = true) - Since Reservation Extends the abstract Entity class, the <em>callSuper=true</em> allows the ToString method to also display the base class properties.</li>
  *  <li>@Entity - specifies that the annotaed model is an Entity for use in persistence through java persistence, the ReservationRepository,
- *       which extends the JPARepository for CRUD operations to the Database.</li>
+ *       which extends the CrudRepository for CRUD operations to the Redis Database.</li>
  * </ul>
  * 
  * ///////////////////////////////////
  * 
- * <h2>ReservationRepositoryJPA</h2>
- * <ul><li>Through the ReservationRepositoryJPA, The Reservation Entity interacts with a H2 database using the repository pattern extending a JPARepository.</li></ul>
+ * <h2>ReservationRepository</h2>
+ * <ul><li>Through the ReservationRepository, The Reservation Entity interacts with the NoSQL Redis database using the repository pattern extending a CrudRepository.</li></ul>
  * <ul>
- *  <li>findByStartTimeBetween - allows for the ability to find all reservations based on a given start time range.</li>
- *  <li>findByShowTimeId - allows for the ability to find all reservations based on a given showtime.</li>
- *  <li>findByCustomerId - allows for the ability to find all reservations based on a given customer.</li>
- *  <li>findByDescription - allows for the ability to find all reservations based on an exact description.</li>
+ *  <li>@Indexed allows the Redis DB to search and do the following findBy operations on Reservations.</li>
+ *  <ul>
+ *      <li>findByShowTimeId - allows for the ability to find all reservations based on a given showtime.</li>
+ *      <li>findByCustomerId - allows for the ability to find all reservations based on a given customer.</li>
+ *      li>findByDescription - allows for the ability to find all reservations based on an exact description.</li>
+ *  </ul>
  * </ul>
  * 
  * ///////////////////////////////////
