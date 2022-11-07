@@ -38,12 +38,12 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         var permittedRoutes = new String [] {
-            "/h2-console/**",
+            // "/h2-console/**",
             "/api/auth/**",
-            "/", 
-            "/home", 
-            "/swagger-ui/**",
-            "/v3/api-docs/**"
+            // "/", 
+            // "/home", 
+            // "/swagger-ui/**",
+            // "/v3/api-docs/**"
         };
 
         http.cors().and().csrf().disable()

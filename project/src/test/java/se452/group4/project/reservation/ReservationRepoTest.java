@@ -27,7 +27,7 @@ public class ReservationRepoTest extends BaseReservationTest {
     /**
      * TEST: ReservationRepository Extending JPARepository - CRUD
      */
-    @Test
+    // @Test
     public void testRepoCRUD() {
         // ARRANGE
         var r = createReservation();
@@ -42,7 +42,7 @@ public class ReservationRepoTest extends BaseReservationTest {
     /**
      * TEST: ReservationRepository Extending JPARepository - find by description
      */
-    @Test
+    // @Test
     public void testFindByDescription() {
         // ARRANGE
         var r = createReservation();
@@ -59,7 +59,7 @@ public class ReservationRepoTest extends BaseReservationTest {
     /**
      * TEST: ReservationRepository Extending JPARepository - CRUD - find by showtimeId
      */
-    @Test
+    // @Test
     public void testFindByShowTimeId() {
         // ARRANGE
         var r = createReservation();
@@ -76,7 +76,7 @@ public class ReservationRepoTest extends BaseReservationTest {
     /**
      * TEST: ReservationRepository Extending JPARepository - CRUD - find by customerId
      */
-    @Test
+    // @Test
     public void testFindByCustomerId() {
         // ARRANGE
         var r = createReservation();

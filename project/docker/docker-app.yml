@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: flixnet-app
+    image: ericmargules/se452-flixnet:latest
+    env_file: ./.env
+    ports:
+        - "$SPRING_LOCAL_PORT:$SPRING_DOCKER_PORT"       
