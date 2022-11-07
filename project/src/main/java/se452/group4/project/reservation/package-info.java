@@ -42,6 +42,7 @@
  *          This leaves the controller clean of business logic and free for response formation, logging, and exception handling.</li>
  *      <li>Endpoints throw the customer ReservationResponse and return ResponseEntity<ReservationResponse> on success and ResponseStatusExceptions on errors</li>
  *      <li>Reservation POST and PUT calls utilize a JSON @RequestBody parameter and DELETE Calls utilize a @PathVariable for the UUID of the Reservation.</li>
+ *      <li>Endpoints are decorated with @Tag and @Operation for more descript Swagger Documentation.</li>
  *  </ul>
  * 
  * ///////////////////////////////////
