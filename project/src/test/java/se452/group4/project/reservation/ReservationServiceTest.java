@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.assertj.core.util.IterableUtil;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,8 +44,8 @@ public class ReservationServiceTest extends BaseReservationTest {
         var result = service.GetAllReservations();
 
         assertNotNull(result);
-        assertEquals(2, result.reservations.size());
-        assertEquals(rs.get(0), result.reservations.get(0));
+        assertEquals(2, IterableUtil.sizeOf(result.reservations));
+        assertEquals(rs.get(0), result.reservations.iterator().next());
     }
 
     @Test
@@ -75,7 +76,7 @@ public class ReservationServiceTest extends BaseReservationTest {
         var result = service.UpsertReservation(newR);
         
         assertNotNull(result);
-        assertEquals(newR.getDescription(), result.reservations.get(0).getDescription());
+        assertEquals(newR.getDescription(), result.reservations.iterator().next().getDescription());
     }
 
     @Test
@@ -120,6 +121,6 @@ public class ReservationServiceTest extends BaseReservationTest {
         service.DeleteReservationById(r.getId());
 
         var result = service.GetAllReservations();
-        assertEquals(0, result.reservations.size());
+        assertEquals(0, IterableUtil.sizeOf(result.reservations));
     }
 }

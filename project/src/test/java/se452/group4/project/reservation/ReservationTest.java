@@ -18,7 +18,7 @@ public class ReservationTest extends BaseReservationTest {
         var r = createReservation();
 
         var expectedResult = MessageFormat.format(
-            "Reservation(super=Entity(id={0}, created={1}), description={2}, startTime={3}, showTimeId={4}, customerId={5})", 
+            "Reservation(id={0}, created={1}, description={2}, startTime={3}, showTimeId={4}, customerId={5})", 
             r.getId(), r.getCreated(), r.getDescription(), r.getStartTime(), r.getShowTimeId(), r.getCustomerId());
             
 		assertEquals(expectedResult, r.toString());

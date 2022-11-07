@@ -1,7 +1,5 @@
 package se452.group4.project.reservation;
 
-import java.time.LocalDateTime;
-import java.util.List;
 import java.util.UUID;
 
 /**
@@ -46,31 +44,23 @@ public interface IReservationService {
     public ReservationResponse DeleteReservationById(UUID id) throws ReservationException;
 
     /**
-     * finds all the reservations based on a given start time range.
-     * @param firstDateTime
-     * @param secondDateTime
-     * @return
-     */
-    public ReservationResponse GetReservationsBetweenStartTime(LocalDateTime firstDateTime, LocalDateTime secondDateTime); 
-
-    /**
      * finds all the Reservations based on a given customer.
      * @param customerId
      * @return
      */
-    public ReservationResponse GetReservationsByCustomerId(UUID customerId);
+    public ReservationResponse GetReservationsByCustomerId(UUID customerId) throws ReservationException;
 
     /**
      * finds all the Reservations based on an exact description.
      * @param description
      * @return
      */
-    public ReservationResponse GetReservationsByDescription(String description);
+    public ReservationResponse GetReservationsByDescription(String description) throws ReservationException;
 
     /**
      * finds all the Reservations based on a given showtime.
      * @param showTimeId
      * @return
      */
-    public ReservationResponse GetReservationsByShowTimeId(UUID showTimeId);
+    public ReservationResponse GetReservationsByShowTimeId(UUID showTimeId) throws ReservationException;
 }

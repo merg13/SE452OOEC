@@ -98,17 +98,9 @@ public class UserRegistrationService implements IUserRegistrationServiceImpl {
         }
     }
 
-    private boolean validatePassword(String password) {
-        if (!password.matches(PasswordRegEx)) {
-            return false;
-        }
-
-        return true; // Valid Password.
-    }
-
     @Override
     public UserResponse getUser(String username) throws UserException {
-        UserResponse retval = new UserResponse();
+        UserResponse retval;
         try {
             if(!userRepository.existsByUsername(username).booleanValue()) {
                 retval = UserResponse.builder()
@@ -135,6 +127,14 @@ public class UserRegistrationService implements IUserRegistrationServiceImpl {
                 .build();
         }
         return retval;
+    }
+
+    private boolean validatePassword(String password) {
+        if (!password.matches(PasswordRegEx)) {
+            return false;
+        }
+
+        return true; // Valid Password.
     }
     
 }

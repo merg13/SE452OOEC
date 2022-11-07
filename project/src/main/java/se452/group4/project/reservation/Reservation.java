@@ -1,39 +1,53 @@
 package se452.group4.project.reservation;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import javax.persistence.Column;
+
+import org.springframework.data.redis.core.RedisHash;
+import org.springframework.data.redis.core.index.Indexed;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NonNull;
 import lombok.ToString;
-import se452.group4.project.entity.Entity;
+import lombok.experimental.SuperBuilder;
 
+@RedisHash
 @Data
-@javax.persistence.Entity
+@EqualsAndHashCode()
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = true)
-@ToString(callSuper = true)
-public class Reservation extends Entity {
+@ToString()
+@SuperBuilder
+public class Reservation implements Serializable {
 
+    @NonNull
+    @Indexed
+    private UUID id;
 
-    @Column(name = "description")
+    @NonNull
+    @Indexed
+    private LocalDateTime created;
+    
+    @Indexed
     public String description;
-
+    
     @NonNull
-    @Column(name = "start_time")
+    @Indexed
     public LocalDateTime startTime;
-
+    
     @NonNull
-    @Column(name = "showtime_id", length = 16)
+    @Indexed
     public UUID showTimeId;
-
+    
     @NonNull
-    @Column(name = "customer_id", length = 16)
+    @Indexed
     public UUID customerId;
 
-    public Reservation() {}
+    public Reservation() {
+        this.id = UUID.randomUUID();
+        this.created = LocalDateTime.now();
+    }
 }

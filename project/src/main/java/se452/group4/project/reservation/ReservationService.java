@@ -1,13 +1,10 @@
 package se452.group4.project.reservation;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
-import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 /**
@@ -135,27 +132,65 @@ public class ReservationService implements IReservationService {
     }
 
     @Override
-    public ReservationResponse GetReservationsBetweenStartTime(LocalDateTime firstDateTime,
-            LocalDateTime secondDateTime) {
-        // TODO Auto-generated method stub
-        return null;
+    public ReservationResponse GetReservationsByCustomerId(UUID customerId) throws ReservationException {
+        ReservationResponse retval;
+        try {
+            retval = ReservationResponse.builder()
+                .reservations(repo.findByCustomerId(customerId))
+                .errors(Set.of(new String[]{}))
+                .success(true)
+                .build();
+        }
+        catch(Exception e) {
+            retval = ReservationResponse.builder()
+                .success(false)
+                .errors(Set.of(new String[] { ReservationException.GetReservationByCustomerIdError }))
+                .reservations(null)
+                .build();
+        }
+
+        return retval;
     }
 
     @Override
-    public ReservationResponse GetReservationsByCustomerId(UUID customerId) {
-        // TODO Auto-generated method stub
-        return null;
+    public ReservationResponse GetReservationsByDescription(String description) throws ReservationException {
+        ReservationResponse retval;
+        try {
+            retval = ReservationResponse.builder()
+                .reservations(repo.findByDescription(description))
+                .errors(Set.of(new String[]{}))
+                .success(true)
+                .build();
+        }
+        catch(Exception e) {
+            retval = ReservationResponse.builder()
+                .success(false)
+                .errors(Set.of(new String[] { ReservationException.GetReservationByDescriptionError }))
+                .reservations(null)
+                .build();
+        }
+
+        return retval;
     }
 
     @Override
-    public ReservationResponse GetReservationsByDescription(String description) {
-        // TODO Auto-generated method stub
-        return null;
-    }
+    public ReservationResponse GetReservationsByShowTimeId(UUID showTimeId) throws ReservationException {
+        ReservationResponse retval;
+        try {
+            retval = ReservationResponse.builder()
+                .reservations(repo.findByShowTimeId(showTimeId))
+                .errors(Set.of(new String[]{}))
+                .success(true)
+                .build();
+        }
+        catch(Exception e) {
+            retval = ReservationResponse.builder()
+                .success(false)
+                .errors(Set.of(new String[] { ReservationException.GetReservationByShowtimeIdError }))
+                .reservations(null)
+                .build();
+        }
 
-    @Override
-    public ReservationResponse GetReservationsByShowTimeId(UUID showTimeId) {
-        // TODO Auto-generated method stub
-        return null;
+        return retval;
     }
 }

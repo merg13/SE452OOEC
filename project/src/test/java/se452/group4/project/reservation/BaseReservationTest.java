@@ -6,13 +6,15 @@ import java.util.UUID;
 public abstract class BaseReservationTest {
 
     protected Reservation createReservation() {
-        var r = new Reservation();
-        r.setId(UUID.randomUUID());
-        r.setCreated(LocalDateTime.now());
-        r.setDescription("UnitTestDescription");
-        r.setStartTime(LocalDateTime.now().plusHours(5));
-        r.setCustomerId(UUID.randomUUID());
-        r.setShowTimeId(UUID.randomUUID());
+        var r = Reservation.builder()
+            .id(UUID.randomUUID())
+            .created(LocalDateTime.now())
+            .description("UnitTestDescription")
+            .startTime(LocalDateTime.now().plusHours(5))
+            .customerId(UUID.randomUUID())
+            .showTimeId(UUID.randomUUID())
+            .build();
+
 
         return r;
     }
