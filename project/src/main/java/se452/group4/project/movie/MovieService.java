@@ -1,5 +1,6 @@
 package se452.group4.project.movie;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -38,7 +39,11 @@ public class MovieService implements IMovieService {
 
     @Override
     public List<Movie> getAllMovies() {
-        return _repo.findAll();
+        List<Movie> ret = new ArrayList<Movie>();
+
+        Iterable<Movie> allMovies = _repo.findAll();
+        allMovies.forEach(ret::add);
+        return ret;
     }
     
 }

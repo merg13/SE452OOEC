@@ -9,9 +9,8 @@ spring:
   datasource:
     url:  jdbc:h2:mem:se452dbdev
   jpa:
-    generate-ddl: true
     show-sql: true
     defer-datasource-initialization: true
   redis:
-    host: localhost
+    host: host.docker.internal
     port: 6379
