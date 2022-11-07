@@ -4,10 +4,10 @@ import java.util.List;
 import java.util.UUID;
 
 public interface IMovieService {
-    List<Movie> GetAllMovies();
-    Movie CreateMovie(String title, String description, int length);
-    Movie GetMovieById(UUID id);
-    List<Movie> GetMovieByTitle(String title);
-    Movie UpdateMovie(Movie movieToUpdate);
-    void DeleteMovie(Movie movieToDelete);    
+    List<Movie> getAllMovies();
+    Movie createMovie(String title, String description, int length);
+    Movie getMovieById(UUID id);
+    List<Movie> getMovieByTitle(String title);
+    Movie updateMovie(Movie movieToUpdate);
+    void deleteMovie(Movie movieToDelete);    
 }

@@ -20,7 +20,7 @@ public interface IReservationService {
      * @return
      * @throws ReservationException
      */
-    public ReservationResponse GetReservationById(UUID id) throws ReservationException;
+    public ReservationResponseResponse GetReservationById(UUID id) throws ReservationException;
 
     /**
      * Upserts a Reservation object based on the new data structure. Create/Insert or Update.
@@ -28,14 +28,14 @@ public interface IReservationService {
      * @param newReservation
      * @return
      */
-    public ReservationResponse UpsertReservation(Reservation newReservation) throws ReservationException;
+    public ReservationResponseResponse UpsertReservation(Reservation newReservation) throws ReservationException;
 
     /**
      * Creates a new Reservation object.
      * @param newReservation
      * @return
      */
-    public ReservationResponse CreateReservation(Reservation newReservation) throws ReservationException;
+    public ReservationResponseResponse CreateReservation(Reservation newReservation) throws ReservationException;
 
     /**
      * Deletes a Reservation based on a given unique identifier for it.

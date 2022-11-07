@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.UUID;
 
 public interface IShowtimeService {
-    List<Showtime> GetAllShowtimes();
-    Showtime CreateShowtime(UUID movieId, UUID auditoriumId, LocalDateTime showtime);
-    Showtime GetShowtimeById(UUID id);
-    List<Showtime> GetShowtimesByMovie(UUID movieId);
-    List<Showtime> GetShowtimesByAuditorium(UUID auditoriumId);
-    Showtime UpdateShowtime(Showtime showtimeToUpdate);
-    void DeleteShowtime(Showtime showtimeToDelete);    
+    List<Showtime> getAllShowtimes();
+    Showtime createShowtime(UUID movieId, UUID auditoriumId, LocalDateTime showtime);
+    Showtime getShowtimeById(UUID id);
+    List<Showtime> getShowtimesByMovie(UUID movieId);
+    List<Showtime> getShowtimesByAuditorium(UUID auditoriumId);
+    Showtime updateShowtime(Showtime showtimeToUpdate);
+    void deleteShowtime(Showtime showtimeToDelete);    
 }
