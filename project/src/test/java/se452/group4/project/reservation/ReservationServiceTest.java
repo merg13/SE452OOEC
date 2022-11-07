@@ -22,10 +22,10 @@ public class ReservationServiceTest extends BaseReservationTest {
     @Autowired
     ReservationService service;
 
-    ReservationRepositorysitory repo;
+    ReservationRepository repo;
 
     public ReservationServiceTest() {
-        repo = mock(ReservationRepositorysitory.class);
+        repo = mock(ReservationRepository.class);
     }
 
     @AfterEach 
