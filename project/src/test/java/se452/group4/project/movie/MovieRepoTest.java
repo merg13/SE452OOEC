@@ -40,7 +40,7 @@ public class MovieRepoTest {
         _m.setTitle(newTitle);
         _repo.save(_m);
 
-        Movie _u = _repo.getReferenceById(id);
+        Movie _u = _repo.findById(id).get();
 
         assertEquals(_u.getTitle(), newTitle);
     }
