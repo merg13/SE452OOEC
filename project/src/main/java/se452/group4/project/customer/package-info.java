@@ -16,6 +16,21 @@
  *  <li>Extends JpaRepository to inherit all JpaRepository features</li>
  * </ul>
  * 
+ * <h2> CustomerController <h2>
+ * <ul>
+ *  <li>Add APIs for Customer class</li>
+ * </ul>
+ * 
+ * <h2> ICustomerService <h2>
+ * <ul>
+ *  <li>Add Interface for Service Layer for Customer class</li>
+ * </ul>
+ * 
+ * <h2> CustomerService <h2>
+ * <ul>
+ *  <li>Add Services Layer for Customer class</li>
+ * </ul>
+ * 
  * <h2> CustomerTest <h2>
  * <ul>
  *  <li>Tests Customer and CustomerRepo features</li>

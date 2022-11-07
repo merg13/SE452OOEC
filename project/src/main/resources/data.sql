@@ -1,6 +1,6 @@
--- ADMIN SEED DATA
-insert into admin(id, created) 
-values(random_uuid(), CURRENT_TIMESTAMP());
+-- -- ADMIN SEED DATA
+-- insert into admin(id, created) 
+-- values(random_uuid(), CURRENT_TIMESTAMP());
 
 -- CUSTOMER SEED DATA
 insert into customer(id, created, name) 
