@@ -10,6 +10,25 @@
  *  <li>adminId</li>
  * </ul>
  * 
+ * <h2> AdminController <h2>
+ * <ul>
+ *  <li>Add APIs for Admin class</li>
+ * </ul>
+ * 
+ * <h2> IAdminService <h2>
+ * <ul>
+ *  <li>Add Interface for Service Layer for Admin class</li>
+ * </ul>
+ * 
+ * <h2> AdminService <h2>
+ * <ul>
+ *  <li>Add Services Layer for Admin class</li>
+ * </ul>
+ * 
+ * <h2> NoSQL <h2>
+ * <ul>
+ *  <li>Convert Admin and AdminRepo from SQL to NoSQL using Redis</li>
+ * </ul>
  * 
  * <h2> AdminRepo <h2>
  * <ul>
