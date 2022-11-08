@@ -8,7 +8,7 @@ A theater management system that allows customers to see movies currently showin
 
 | Member | Area  |
 | ----------- | ----------- |
-| Mitchell | Reservation
-| Tan | Customer
+| Mitchell | Reservation, Security-User, Security-UserRole
+| Tan | Customer, Admin
 | Eric | Showtime, Movie, Entity
 | Umme | Auditorium 
