@@ -3,8 +3,11 @@ package se452.group4.project.showtime;
 import java.util.List;
 import java.util.UUID;
 
+import javax.annotation.security.PermitAll;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -26,11 +29,13 @@ public class ShowtimeController {
     private IShowtimeService _service;
 
     @GetMapping("/all")
+    @PermitAll
     public List<Showtime> getAll() {
         return _service.getAllShowtimes();
     }
 
     @GetMapping()
+    @PermitAll
     public Showtime get(@RequestParam(value = "id") UUID id) throws ResponseStatusException {
         try {
             Showtime _s = _service.getShowtimeById(id);
@@ -43,6 +48,7 @@ public class ShowtimeController {
     }
     
     @DeleteMapping
+    @Secured({ "ROLE_ADMIN" })
     public void delete(@RequestParam(value = "id") UUID id) throws ResponseStatusException {
         try {
             Showtime _s = _service.getShowtimeById(id);
@@ -56,6 +62,7 @@ public class ShowtimeController {
     }
 
     @PostMapping("/new")
+    @Secured({ "ROLE_ADMIN" })
     public Showtime create(@RequestBody NewShowtimeVm showtime) throws ResponseStatusException {
         try {
             return _service.createShowtime(showtime.getMovieId(), showtime.getAuditoriumId(), showtime.getTime());
@@ -65,6 +72,7 @@ public class ShowtimeController {
     }
 
     @PatchMapping("/update")
+    @Secured({ "ROLE_ADMIN" })
     public Showtime update(@RequestBody UpdateShowtimeVm showtime) throws ResponseStatusException {
         try {
             Showtime _s = _service.getShowtimeById(showtime.getId());

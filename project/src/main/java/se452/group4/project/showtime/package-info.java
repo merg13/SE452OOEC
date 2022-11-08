@@ -26,6 +26,10 @@
  *  <li>Service interface implemented by Service class</li>
  *  <li>Controller actions return http status codes instead of raw exceptions</li>
  * </ul>
+ * <h2>Points of Interest MS3<h2>
+ * <ul>
+ *   <li>Security declarations on controller to authorize requests</li>
+ * </ul>
  */
 
 package se452.group4.project.showtime;
