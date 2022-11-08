@@ -19,7 +19,6 @@ import lombok.extern.log4j.Log4j2;
 
 @RestController
 @RequestMapping("/api/auditorium")
-
 public class AuditoriumController {
 
 
@@ -53,24 +52,25 @@ public class AuditoriumController {
     }
 
     @PostMapping("/new")
-    public Auditorium create(@RequestBody CreateAuditorium Auditorium) throws ResponseStatusException {
+    public Auditorium create(@RequestBody Auditorium auditorium) throws ResponseStatusException {
+        auditorium = new Auditorium(auditorium.name, auditorium.getCapacity());
         try {
-            return _service.CreateAuditorium(Auditorium.getName(), Auditorium.getCapacity());
+            return _service.CreateAuditorium(auditorium);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
         }
     }
 
     @PatchMapping("/update")
-    public Auditorium update(@RequestBody UpdateAuditorium Auditorium) throws ResponseStatusException {
+    public Auditorium update(@RequestBody UpdateAuditorium auditorium) throws ResponseStatusException {
         try {
-            Auditorium _m = _service.GetAuditorium(Auditorium.getId());
+            Auditorium _m = _service.GetAuditorium(auditorium.getId());
             if (_m == null)
                 throw new AuditoriumException();
 
-            if (Auditorium.getName() != null)
-                _m.setName(Auditorium.getName());
-            if (Auditorium.getCapacity() != null)
+            if (auditorium.getName() != null)
+                _m.setName(auditorium.getName());
+            if (auditorium.getCapacity() != null)
                 _m.setCapacity(0);
 
             return _service.UpdateAuditorium(_m);

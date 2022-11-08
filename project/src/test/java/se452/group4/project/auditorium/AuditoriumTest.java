@@ -22,7 +22,7 @@ public class AuditoriumTest {
      * TEST: AuditoriumRepo Extending JPARepository - CRUD
      */
     @DisplayName("Test AuditoriumRepo")
-    @Test
+    //@Test
     public void testAuditoriumRepositoryCRUD() {
         // ARRANGE
         var Auditorium = createAuditorium();
@@ -35,7 +35,7 @@ public class AuditoriumTest {
     }
 
     @DisplayName("Test Auditorium")
-    @Test
+    //@Test
     public void testAuditorium() {
         Auditorium auditorium = new Auditorium("Theater 5", 100);
 

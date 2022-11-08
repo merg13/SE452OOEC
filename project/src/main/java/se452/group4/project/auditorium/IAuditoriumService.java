@@ -11,7 +11,7 @@ public interface IAuditoriumService {
 
     public Auditorium GetAuditorium(UUID id) throws AuditoriumException;
 
-    public Auditorium CreateAuditorium(String name, int capacity) throws AuditoriumException;
+    public Auditorium CreateAuditorium(Auditorium auditorium) throws AuditoriumException;
 
     public Auditorium UpdateAuditorium(Auditorium auditorium) throws AuditoriumException;
 

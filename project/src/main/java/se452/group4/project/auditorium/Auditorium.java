@@ -1,25 +1,23 @@
 package se452.group4.project.auditorium;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.AllArgsConstructor;
-import lombok.NonNull;
-import lombok.ToString;
+
 import se452.group4.project.entity.Entity;
-import javax.persistence.Table;
+
+import org.springframework.data.redis.core.RedisHash;
+import lombok.AllArgsConstructor;
+import lombok.ToString;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Data
-@javax.persistence.Entity
 @AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-@Table(name = "auditorium")
-
+@RedisHash("Auditorium")
 public class Auditorium extends Entity {
     
     public String name;
     public int capacity;
-
-    public Auditorium() {}
-
 }

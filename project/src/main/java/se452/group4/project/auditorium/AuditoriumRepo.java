@@ -3,10 +3,10 @@ package se452.group4.project.auditorium;
 
 import java.util.List;
 import java.util.UUID;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
 
-public interface AuditoriumRepo extends JpaRepository<Auditorium, UUID>{
+public interface AuditoriumRepo extends CrudRepository<Auditorium, UUID>{
 
     /**
      * finds all the Auditorium based on capacity.

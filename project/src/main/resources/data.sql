@@ -23,8 +23,8 @@ insert into showtimes(id, created, movie_id, auditorium_id, showtime)
 values (random_uuid(), CURRENT_TIMESTAMP(), random_uuid(), random_uuid(), CURRENT_TIMESTAMP());
 
 -- AUDITORIUM SEED DATA
-insert into auditorium(id, created, name,capacity) 
-values(random_uuid(), CURRENT_TIMESTAMP(), 'Chicago Auditorium', 1000);
+-- insert into auditorium(id, created, name,capacity) 
+-- values(random_uuid(), CURRENT_TIMESTAMP(), 'Chicago Auditorium', 1000);
 
 -- USER ROLE SEED DATA
 INSERT INTO user_roles(name) VALUES('ROLE_CUSTOMER');

@@ -28,8 +28,15 @@ public class AuditoriumService implements IAuditoriumService {
     }
 
     @Override
-    public Auditorium CreateAuditorium(String name, int capacity) throws AuditoriumException {
-        return repo.save(new Auditorium(name, capacity));
+    public Auditorium CreateAuditorium(Auditorium newAuditorium) throws AuditoriumException {
+        Auditorium auditorium = null;
+        try {
+            auditorium = repo.save(newAuditorium);
+        } catch (Exception e) {
+            throw new AuditoriumException(AuditoriumException.CreateAuditoriumError, e);
+        }
+
+        return auditorium;
     }
 
     @Override
