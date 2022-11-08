@@ -18,12 +18,17 @@
  *  <li>Lombok NoArgsConstructor decorator necessary for JPARepo</li>
  *  <li>SpringbootTest decorator necessary to implement DI via @Autowired</li>
  * </ul>
-  * <h2>Points of Interest Milestone 3<h2>
+ * <h2>Points of Interest Milestone 3<h2>
  * <ul>
  *  <li>Addition repo action (query on movie title)</li>
  *  <li>View models to pass only relevant data to controller </li>
  *  <li>Service interface implemented by Service class</li>
  *  <li>Controller actions return http status codes instead of raw exceptions</li>
+ * </ul>
+ * <h2>Points of Interest Milestone 4<h2>
+ * <ul>
+ *  <li>Conversion to NoSQL database (Redis)</li>
+ *  <li>Security declarations on controller to authorize requests</li>
  * </ul>
  */
 

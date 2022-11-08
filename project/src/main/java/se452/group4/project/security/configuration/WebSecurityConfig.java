@@ -40,7 +40,9 @@ public class WebSecurityConfig {
         var permittedRoutes = new String [] {
             // "/h2-console/**",
             "/api/auth/**",
-            // "/", 
+            "/api/movie/**",
+            "/api/showtime/**",
+            "/"
             // "/home", 
             // "/swagger-ui/**",
             // "/v3/api-docs/**"
